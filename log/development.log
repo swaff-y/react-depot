@@ -526,3 +526,110 @@ Processing by ProductsController#index as */*
 Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/products" for ::1 at 2020-12-28 16:47:37 +1100
+Processing by ProductsController#index as HTML
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/" for ::1 at 2020-12-28 16:47:44 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.4ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:47:46 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/products" for ::1 at 2020-12-28 16:47:49 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/products" for ::1 at 2020-12-28 16:47:57 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/products" for ::1 at 2020-12-28 16:47:59 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/products" for ::1 at 2020-12-28 16:48:00 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/products" for ::1 at 2020-12-28 16:48:01 +1100
+Processing by ProductsController#index as */*
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms)
+
+
+  
+ArgumentError (The provided regular expression is using multiline anchors (^ or $), which may present a security risk. Did you mean to use \A and \z, or forgot to add the :multiline => true option?):
+  
+app/models/product.rb:5:in `<class:Product>'
+app/models/product.rb:1:in `<main>'
+app/controllers/products_controller.rb:7:in `index'
+Started GET "/" for ::1 at 2020-12-28 16:48:55 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:48:58 +1100
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (2.4ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 65ms (Views: 12.7ms | ActiveRecord: 40.5ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:49:09 +1100
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 1.5ms)
+
+
