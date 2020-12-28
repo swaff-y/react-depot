@@ -1,0 +1,528 @@
+  [1m[35m (1069.5ms)[0m  [1m[35mCREATE DATABASE "react-depot_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (344.7ms)[0m  [1m[35mCREATE DATABASE "react-depot_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:4
+  [1m[35m (45.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:4
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(7276399610117474760)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+Migrating to CreateProducts (20201228042511)
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" bigserial primary key, "title" character varying, "description" text, "image_url" character varying, "price" decimal(8,2), "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20201228042511_create_products.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (6.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201228042511"]]
+  ↳ bin/rails:4
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:4
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:4
+  [1m[36mActiveRecord::InternalMetadata Create (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-12-28 04:26:56.655780"], ["updated_at", "2020-12-28 04:26:56.655780"]]
+  ↳ bin/rails:4
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:4
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(7276399610117474760)[0m
+  ↳ bin/rails:4
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:4
+  [1m[36mProduct Destroy (1.6ms)[0m  [1m[31mDELETE FROM "products"[0m
+  ↳ db/seeds.rb:5
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ db/seeds.rb:7
+  [1m[36mProduct Create (1.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "Programming Ruby 1.9"], ["description", "<p>\nRuby is the fastest growing and most exciting dynamic language\nout there. If you need to get working programs delivered fast,\nyou should add Ruby to your toolbox.\n</p>"], ["image_url", "http://www.fillmurray.com/200/200"], ["price", "49.5"], ["created_at", "2020-12-28 04:32:41.413761"], ["updated_at", "2020-12-28 04:32:41.413761"]]
+  ↳ db/seeds.rb:7
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ db/seeds.rb:7
+Started GET "/" for ::1 at 2020-12-28 15:33:04 +1100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/welcome/index.html.erb (4.9ms)
+Completed 200 OK in 21ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 15:33:34 +1100
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:17
+  Rendered products/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 2112ms (Views: 2099.8ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 15:47:03 +1100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (1.3ms)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2020-12-28 15:47:06 +1100
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: 2b1bd2c3ea04e312bd0f
+Version: webpack 4.44.2
+Time: 7098ms
+Built at: 12/28/2020 3:47:17 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-4bacbce813845b3c1484.js    1.1 MiB        Index  [emitted] [immutable]  Index
+      js/Index-4bacbce813845b3c1484.js.map   1.27 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-4bacbce813845b3c1484.js js/Index-4bacbce813845b3c1484.js.map
+[./app/javascript/packs/Index.jsx] 1.07 KiB {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+    + 15 hidden modules
+
+Completed 200 OK in 14580ms (Views: 14577.6ms | ActiveRecord: 0.0ms)
+
+
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 49.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 15:50:21 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (1.2ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: 5eee6cc5fbd22d93d2fc
+Version: webpack 4.44.2
+Time: 10203ms
+Built at: 12/28/2020 3:50:35 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-b3720ec8658e91638260.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-b3720ec8658e91638260.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-b3720ec8658e91638260.js js/Index-b3720ec8658e91638260.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 745 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 14503ms (Views: 14501.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 15:50:46 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 34.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 15:51:29 +1100
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:17
+  Rendered products/index.html.erb within layouts/application (31.6ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: b6f4da296b1ab688db24
+Version: webpack 4.44.2
+Time: 5554ms
+Built at: 12/28/2020 3:51:39 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-1a5632d41072b8cd8842.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-1a5632d41072b8cd8842.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-1a5632d41072b8cd8842.js js/Index-1a5632d41072b8cd8842.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 745 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 10348ms (Views: 10328.8ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 15:51:48 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.6ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 15:52:01 +1100
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/views/products/index.html.erb:17
+  Rendered products/index.html.erb within layouts/application (3.6ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 28.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 15:52:14 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 29.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 15:56:59 +1100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (2.8ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 30ms (Views: 15.2ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2020-12-28 16:04:02 +1100
+Processing by Rails::InfoController#routes as HTML
+  Rendering /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb [10 times] (32.4ms)
+  Rendered /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/actionpack-5.2.4.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (12.8ms)
+  Rendered /Users/kyleswaffield/.rvm/gems/ruby-2.7.0/gems/railties-5.2.4.4/lib/rails/templates/rails/info/routes.html.erb within layouts/application (53.5ms)
+Completed 200 OK in 70ms (Views: 64.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:06:35 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Compiling...
+Started GET "/" for ::1 at 2020-12-28 16:06:39 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.8ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: b6f4da296b1ab688db24
+Version: webpack 4.44.2
+Time: 10238ms
+Built at: 12/28/2020 4:06:50 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-1a5632d41072b8cd8842.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-1a5632d41072b8cd8842.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-1a5632d41072b8cd8842.js js/Index-1a5632d41072b8cd8842.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 745 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 14877ms (Views: 14875.2ms | ActiveRecord: 0.0ms)
+
+
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: b6f4da296b1ab688db24
+Version: webpack 4.44.2
+Time: 9318ms
+Built at: 12/28/2020 4:06:51 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-1a5632d41072b8cd8842.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-1a5632d41072b8cd8842.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-1a5632d41072b8cd8842.js js/Index-1a5632d41072b8cd8842.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 745 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 12631ms (Views: 12629.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:05 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (1.0ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: 9f9827d0dba8b4762b7a
+Version: webpack 4.44.2
+Time: 6435ms
+Built at: 12/28/2020 4:08:16 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-be1fa4b16acc0ed2528c.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-be1fa4b16acc0ed2528c.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-be1fa4b16acc0ed2528c.js js/Index-be1fa4b16acc0ed2528c.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 951 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 11345ms (Views: 11342.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:25 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 30.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:38 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.6ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 34.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:40 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 46ms (Views: 43.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:41 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.6ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:42 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:43 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.4ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:08:43 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.9ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:09:23 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.4ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: c2f139090cc12bca1817
+Version: webpack 4.44.2
+Time: 4842ms
+Built at: 12/28/2020 4:09:30 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-fa0c1fb42748bb2c7a9c.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-fa0c1fb42748bb2c7a9c.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-fa0c1fb42748bb2c7a9c.js js/Index-fa0c1fb42748bb2c7a9c.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 959 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 7336ms (Views: 7334.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:09:36 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.8ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:10:46 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.5ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: b6f4da296b1ab688db24
+Version: webpack 4.44.2
+Time: 6109ms
+Built at: 12/28/2020 4:10:57 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-1a5632d41072b8cd8842.js   2.62 MiB        Index  [emitted] [immutable]  Index
+      js/Index-1a5632d41072b8cd8842.js.map   2.89 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-1a5632d41072b8cd8842.js js/Index-1a5632d41072b8cd8842.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 745 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 38 hidden modules
+
+Completed 200 OK in 11257ms (Views: 11256.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:12:38 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (1.0ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: 9a885770e5ef792f0ae0
+Version: webpack 4.44.2
+Time: 6838ms
+Built at: 12/28/2020 4:12:50 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-c227d528b8951d1edda1.js   2.63 MiB        Index  [emitted] [immutable]  Index
+      js/Index-c227d528b8951d1edda1.js.map    2.9 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-c227d528b8951d1edda1.js js/Index-c227d528b8951d1edda1.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 999 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 39 hidden modules
+
+Completed 200 OK in 11874ms (Views: 11871.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:13:47 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.7ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: fd775d539af5e5bf1f37
+Version: webpack 4.44.2
+Time: 6159ms
+Built at: 12/28/2020 4:13:56 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-77641fd543437fcea900.js   2.63 MiB        Index  [emitted] [immutable]  Index
+      js/Index-77641fd543437fcea900.js.map    2.9 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-77641fd543437fcea900.js js/Index-77641fd543437fcea900.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 999 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 39 hidden modules
+
+Completed 200 OK in 9499ms (Views: 9497.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:14:04 +1100
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.3ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:14:30 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.8ms)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-28 16:15:36 +1100
+Processing by HomepageController#index as HTML
+  Rendering homepage/index.html.erb within layouts/application
+  Rendered homepage/index.html.erb within layouts/application (0.6ms)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/kyleswaffield/sei/projects/react-depot/public/packs
+[Webpacker] Hash: 1cfbdc89a6098635f436
+Version: webpack 4.44.2
+Time: 6614ms
+Built at: 12/28/2020 4:15:47 PM
+                                     Asset       Size       Chunks                         Chunk Names
+          js/Index-3797e79a580efdbafbcb.js   2.63 MiB        Index  [emitted] [immutable]  Index
+      js/Index-3797e79a580efdbafbcb.js.map    2.9 MiB        Index  [emitted] [dev]        Index
+    js/application-2181adcc3224cdc0c9c1.js   4.72 KiB  application  [emitted] [immutable]  application
+js/application-2181adcc3224cdc0c9c1.js.map    4.5 KiB  application  [emitted] [dev]        application
+                             manifest.json  661 bytes               [emitted]              
+Entrypoint application = js/application-2181adcc3224cdc0c9c1.js js/application-2181adcc3224cdc0c9c1.js.map
+Entrypoint Index = js/Index-3797e79a580efdbafbcb.js js/Index-3797e79a580efdbafbcb.js.map
+[./app/javascript/packs/Index.jsx] 663 bytes {Index} [built]
+[./app/javascript/packs/application.js] 845 bytes {application} [built]
+[./app/javascript/routes/Index.jsx] 999 bytes {Index} [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {Index} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {Index} [built]
+    + 39 hidden modules
+
+Completed 200 OK in 10718ms (Views: 10716.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:15:50 +1100
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (4.1ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:18:10 +1100
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products" for ::1 at 2020-12-28 16:18:16 +1100
+Processing by ProductsController#index as */*
+  [1m[36mProduct Load (1.5ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  ↳ app/controllers/products_controller.rb:8
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.5ms)
+
+
