@@ -20,28 +20,40 @@ class Products extends React.Component {
         })
         .then(response => this.setState({ products: response }))
         .catch(() => this.props.history.push("/"));
+  };
+
+  handleClick = (e) => {
+    const id = e.target.value;
+    fetch(`line_items/${id}`);
   }
 
   render() {
     const { products } = this.state;
+
     const allProducts = products.map((product, index) => (
       <div key={index} className="col-md-6 col-lg-4">
+
         <div className="card mb-4">
-          <img
-            src={product.image_url}
-            className="card-img-top"
-            alt={`${product.title} image`}
-          />
+          <Link to={`/product/${product.id}`} className="prodLink">
+            <img
+              src={product.image_url}
+              className="card-img-top"
+              alt={`${product.title} image`}
+              />
+          </Link>
           <div className="card-body">
-            <h5 className="card-title">{product.title}</h5>
-            <Link to={`/recipe/${product.id}`} className="btn custom-button">
-              View Product
+            <Link to={`/product/${product.id}`} className="prodLink" id="prodLink">
+              <h5 className="card-title">{product.title}</h5>
             </Link>
+            <button onClick={this.handleClick} className="btn btn-primary" value={product.id}>
+              Add to Cart
+            </button>
             <span className="price float-right">${ product.price }</span>
           </div>
         </div>
       </div>
     ));
+
     const noProduct = (
       <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
         <h4>

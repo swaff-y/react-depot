@@ -1,5 +1,5 @@
 class LineItemsController < ApplicationController
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  # before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 
   # GET /line_items
   # GET /line_items.json
@@ -10,6 +10,22 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
+    @cart = current_cart
+    puts "+++++++++++++++++++++++++"
+    puts params[:id]
+    puts "+++++++++++++++++++++++++"
+    product = Product.find(params[:id])
+    @line_item = @cart.line_items.build(:product => product)
+    @line_item.save
+
+    # respond_to do |format|
+    #   if @line_item.save
+    #     puts "success"
+    #     # format.json render @cart
+    #   else
+    #     format.json render json: @line_item.errors
+    #   end
+    # end
   end
 
   # GET /line_items/new
@@ -24,15 +40,18 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @line_item = LineItem.new(line_item_params)
+    @cart = current_cart
+    puts "+++++++++++++++++++++++++"
+    puts params[:product_id]
+    puts "+++++++++++++++++++++++++"
+    product = Product.find(params[:product_id])
+    @line_item = @cart.line_items.build(:product => product)
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render :show, status: :created, location: @line_item }
+        format.json render @line_item
       else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.json render json: @line_item.errors
       end
     end
   end
@@ -63,9 +82,9 @@ class LineItemsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
+    # def set_line_item
+    #   @line_item = LineItem.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def line_item_params

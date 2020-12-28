@@ -109,3 +109,7 @@
 span{
   margin-left: 16px;
 }
+
+#prodLink{
+  text-decoration: none;
+}
