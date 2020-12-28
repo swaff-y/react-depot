@@ -37,6 +37,7 @@ class Products extends React.Component {
             <Link to={`/recipe/${product.id}`} className="btn custom-button">
               View Product
             </Link>
+            <span className="price float-right">${ product.price }</span>
           </div>
         </div>
       </div>
