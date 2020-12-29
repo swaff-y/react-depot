@@ -10,22 +10,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
-    @cart = current_cart
-    puts "+++++++++++++++++++++++++"
-    puts params[:id]
-    puts "+++++++++++++++++++++++++"
-    product = Product.find(params[:id])
-    @line_item = @cart.add_product(:product => product)
-    @line_item.save
-
-    # respond_to do |format|
-    #   if @line_item.save
-    #     puts "success"
-    #     # format.json render @cart
-    #   else
-    #     format.json render json: @line_item.errors
-    #   end
-    # end
+    
   end
 
   # GET /line_items/new
@@ -37,10 +22,14 @@ class LineItemsController < ApplicationController
   def edit
   end
 
+  # GET /line_item/:id
   # POST /line_items
   # POST /line_items.json
   def create
-
+    @cart = current_cart
+    product = Product.find(params[:id])
+    @line_item = @cart.add_product(product.id)
+    @line_item.save
   end
 
   # PATCH/PUT /line_items/1

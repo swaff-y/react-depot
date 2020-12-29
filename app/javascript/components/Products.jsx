@@ -24,7 +24,7 @@ class Products extends React.Component {
 
   handleClick = (e) => {
     const id = e.target.value;
-    fetch(`line_items/${id}`);
+    fetch(`line_item/${id}`);
   }
 
   render() {
@@ -45,7 +45,7 @@ class Products extends React.Component {
             <Link to={`/product/${product.id}`} className="prodLink" id="prodLink">
               <h5 className="card-title">{product.title}</h5>
             </Link>
-            <button onClick={this.handleClick} className="btn btn-primary" value={product.id}>
+            <button onClick={this.handleClick} className="btn custom-button" value={product.id}>
               Add to Cart
             </button>
             <span className="price float-right">${ product.price }</span>

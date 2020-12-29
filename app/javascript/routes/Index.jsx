@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../components/Home";
 import Products from "../components/Products";
 import Navbar from "../components/Navbar";
+import CartData from "../components/CartData";
 
 export default (
   <>

@@ -1,1 +1,5 @@
+<h2>Line Items</h2>
 
+<% @cart.line_items.each do |item| %>
+  <p><%= item.product.title %></p>
+<% end %>

@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { SidebarData } from "./SidebarData"
-
+import { CartData } from "./CartData"
 import { IconContext } from 'react-icons'
+
 
 function Navbar(){
   const [sidebar, setSidebar] = useState(false)
@@ -34,6 +35,7 @@ function Navbar(){
               </li>
             )
           })}
+          <li className="nav-text-cart"><CartData /></li>
         </ul>
       </nav>
     </IconContext.Provider>
