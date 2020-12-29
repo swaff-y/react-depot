@@ -15,7 +15,7 @@ class LineItemsController < ApplicationController
     puts params[:id]
     puts "+++++++++++++++++++++++++"
     product = Product.find(params[:id])
-    @line_item = @cart.line_items.build(:product => product)
+    @line_item = @cart.add_product(:product => product)
     @line_item.save
 
     # respond_to do |format|
@@ -40,20 +40,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    @cart = current_cart
-    puts "+++++++++++++++++++++++++"
-    puts params[:product_id]
-    puts "+++++++++++++++++++++++++"
-    product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(:product => product)
 
-    respond_to do |format|
-      if @line_item.save
-        format.json render @line_item
-      else
-        format.json render json: @line_item.errors
-      end
-    end
   end
 
   # PATCH/PUT /line_items/1
