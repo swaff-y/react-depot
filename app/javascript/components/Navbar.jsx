@@ -6,10 +6,10 @@ import { SidebarData } from "./SidebarData"
 import { CartData } from "./CartData"
 import { IconContext } from 'react-icons'
 
-
-function Navbar(props){
+const Navbar = (props) => {
   const [sidebar, setSidebar] = useState(false)
   const showSidebar = () => setSidebar(!sidebar)
+
   return(
     <>
     <IconContext.Provider value={{color: '#fff'}}>
@@ -17,6 +17,7 @@ function Navbar(props){
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+        <span className="nav-text-ins">{props.change}</span>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
         <ul className='nav-menu-items' onClick={showSidebar}>
@@ -35,7 +36,7 @@ function Navbar(props){
               </li>
             )
           })}
-          <li className="nav-text-cart"><CartData data={props.data}/></li>
+          <li className="nav-text-cart"><CartData change={props.change}/></li>
         </ul>
       </nav>
     </IconContext.Provider>

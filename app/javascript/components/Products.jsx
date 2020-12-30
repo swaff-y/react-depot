@@ -1,12 +1,15 @@
 import React from "react";
+import { PropTypes } from 'react'
 import { Link } from "react-router-dom";
 
 class Products extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      products: []
+      products: [],
+      change: 0
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -23,8 +26,11 @@ class Products extends React.Component {
   };
 
   handleClick = (e) => {
+    const newChange = this.state.change + 1;
     const id = e.target.value;
     fetch(`line_item/${id}`);
+    this.props.change( newChange );
+    this.setState({ change: newChange });
   }
 
   render() {
@@ -64,16 +70,7 @@ class Products extends React.Component {
 
     return (
       <>
-        <section className="jumbotron jumbotron-fluid text-center">
-          <div className="container py-5">
-            <h1 className="display-4">Products for all</h1>
-            <p className="lead text-muted">
-              We’ve pulled together our most popular products, our latest
-              additions, and our editor’s picks, so there’s sure to be something
-              tempting for you to try.
-            </p>
-          </div>
-        </section>
+
         <div className="py-5">
           <main className="container">
             <div className="text-right mb-3">

@@ -6,9 +6,36 @@ export class CartData extends React.Component {
     super(props);
     this.state = {
       data: [],
-      total: ''
+      total: '',
+      len: 0
     };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.change !== this.props.change){
+      this.setState({ len: this.props.change});
+      const url = "/carts/last";
+      const urlTwo = "/carts/last/total";
+      fetch(url)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error("Network response was not ok.");
+        })
+        .then(data => this.setState({ data: data }))
+        // .catch(() => this.props.history.push("/"));
+      fetch(urlTwo)
+        .then(response => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error("Network response was not ok.");
+        })
+        .then(data => this.setState({ total: data }))
+        // .catch(() => this.props.history.push("/"));
+    }
   }
 
   componentDidMount() {
