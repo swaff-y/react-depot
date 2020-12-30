@@ -53,7 +53,7 @@
 .nav-menu{
   background-color: #060b26;
   z-index: 5;
-  width: 250px;
+  width: 350px;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -72,7 +72,7 @@
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 8px 8px 16px;
   list-style: none;
   height: 60px;
 }
@@ -118,9 +118,9 @@ span{
   display: flex;
   justify-content: start;
   align-items: center;
-  padding: 8px 0px 8px 16px;
+  padding: 8px 40px 8px 16px;
   list-style: none;
-  height: 150px;
+  height: 300px;
 }
 .nav-text-ins{
   color: #f5f5f5;

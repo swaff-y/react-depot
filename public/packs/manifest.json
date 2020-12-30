@@ -1,24 +1,34 @@
 {
-  "Index.js": "/packs/js/Index-af50762f36b1fa3e1f35.js",
-  "Index.js.map": "/packs/js/Index-af50762f36b1fa3e1f35.js.map",
-  "application.js": "/packs/js/application-2181adcc3224cdc0c9c1.js",
-  "application.js.map": "/packs/js/application-2181adcc3224cdc0c9c1.js.map",
+  "Index.js": "/packs/js/Index-874645afcca192fdb27b.js",
+  "Index.js.map": "/packs/js/Index-874645afcca192fdb27b.js.map",
+  "application.js": "/packs/js/application-da2be8664e16d8beea5c.js",
+  "application.js.map": "/packs/js/application-da2be8664e16d8beea5c.js.map",
   "entrypoints": {
     "application": {
       "js": [
-        "/packs/js/application-2181adcc3224cdc0c9c1.js"
+        "/packs/js/application-da2be8664e16d8beea5c.js"
       ],
       "js.map": [
-        "/packs/js/application-2181adcc3224cdc0c9c1.js.map"
+        "/packs/js/application-da2be8664e16d8beea5c.js.map"
       ]
     },
     "Index": {
       "js": [
-        "/packs/js/Index-af50762f36b1fa3e1f35.js"
+        "/packs/js/Index-874645afcca192fdb27b.js"
       ],
       "js.map": [
-        "/packs/js/Index-af50762f36b1fa3e1f35.js.map"
+        "/packs/js/Index-874645afcca192fdb27b.js.map"
+      ]
+    },
+    "server_rendering": {
+      "js": [
+        "/packs/js/server_rendering-4bfada9a7fd0ca4fd552.js"
+      ],
+      "js.map": [
+        "/packs/js/server_rendering-4bfada9a7fd0ca4fd552.js.map"
       ]
     }
-  }
+  },
+  "server_rendering.js": "/packs/js/server_rendering-4bfada9a7fd0ca4fd552.js",
+  "server_rendering.js.map": "/packs/js/server_rendering-4bfada9a7fd0ca4fd552.js.map"
 }

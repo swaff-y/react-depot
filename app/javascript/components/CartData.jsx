@@ -39,9 +39,9 @@ export class CartData extends React.Component {
     // console.log(data);
     const allData = data.map((data, index) => (
       <tr key={ index }>
-        <td className="nav-text-ins">{data.quantity}</td>
-        <td className="nav-text-ins">{data.product_id}</td>
-        <td className="nav-text-ins">{data.total_price}</td>
+        <td className="nav-text-ins text-nowrap">{data.quantity} x </td>
+        <td className="nav-text-ins text-left">{data.product.title}</td>
+        <td className="nav-text-ins">${data.product.price * data.quantity}</td>
       </tr>
     ));
 
@@ -57,20 +57,16 @@ export class CartData extends React.Component {
     return (
 
         <table className="nav-cart">
-          <thead>
-            <tr>
-              <th colSpan="3" className="nav-text-ins">Your Cart</th>
-            </tr>
-          </thead>
           <tbody>
-          { allData }
-          <tr className="total_line">
-            <td className="nav-text-ins">Total</td>
-            <td className="nav-text-ins">${ total }</td>
-          </tr>
-          <tr>
-            <td colSpan="2"><button className="btn btn-primary">Empty Cart</button></td>
-          </tr>
+            { allData }
+            <tr className="total_line">
+              <td></td>
+              <td className="nav-text-ins text-right r-5">Total </td>
+              <td className="nav-text-ins">${ total }</td>
+            </tr>
+            <tr>
+              <td colSpan="2"><button className="btn btn-primary">Empty Cart</button></td>
+            </tr>
           </tbody>
         </table>
 

@@ -13,7 +13,7 @@ class CartsController < ApplicationController
   # GET /carts/last.json
   def show
     @cart = Cart.last.line_items
-    render json: @cart
+    render json: @cart, include: ['product']
   end
   def total
     @total = Cart.last.total_price
