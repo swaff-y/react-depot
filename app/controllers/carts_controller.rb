@@ -19,6 +19,10 @@ class CartsController < ApplicationController
     @total = Cart.last.total_price
     render json: @total
   end
+  def delete
+    cart = Cart.find(params[:id])
+    cart.destroy
+  end
 
   # GET /carts/new
   def new

@@ -8,6 +8,7 @@ export class CartData extends React.Component {
       data: [],
       total: ''
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +22,7 @@ export class CartData extends React.Component {
           throw new Error("Network response was not ok.");
         })
         .then(data => this.setState({ data: data }))
-        .catch(() => this.props.history.push("/"));
+        // .catch(() => this.props.history.push("/"));
       fetch(urlTwo)
         .then(response => {
           if (response.ok) {
@@ -30,12 +31,19 @@ export class CartData extends React.Component {
           throw new Error("Network response was not ok.");
         })
         .then(data => this.setState({ total: data }))
-        .catch(() => this.props.history.push("/"));
+        // .catch(() => this.props.history.push("/"));
   };
 
+  handleClick = (e) => {
+    const id = e.target.value;
+    fetch(`carts/delete/${this.state.data[0].cart_id}`);
+    this.setState({ data: [] });
+    this.setState({ total: "" });
+  }
 
   render() {
     const { data } = this.state;
+
     // console.log(data);
     const allData = data.map((data, index) => (
       <tr key={ index }>
@@ -46,11 +54,13 @@ export class CartData extends React.Component {
     ));
 
     const noData = (
-      <div className="">
-        <h4>
-          Empty Cart
-        </h4>
-      </div>
+      <tr className="nav-text-ins">
+        <td>
+          <h4>
+            Empty Cart
+          </h4>
+        </td>
+      </tr>
     );
 
     const { total } = this.state;
@@ -58,14 +68,19 @@ export class CartData extends React.Component {
 
         <table className="nav-cart">
           <tbody>
-            { allData }
+            {data.length > 0 ? allData : noData }
             <tr className="total_line">
               <td></td>
               <td className="nav-text-ins text-right r-5">Total </td>
               <td className="nav-text-ins">${ total }</td>
             </tr>
             <tr>
-              <td colSpan="2"><button className="btn btn-primary">Empty Cart</button></td>
+              <td colSpan="2">
+                <button className="btn btn-primary" onClick={this.handleClick}
+                value={ data }>
+                  Empty Cart
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>

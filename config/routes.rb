@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :carts
   get 'carts/last' => 'carts#show'
   get 'carts/last/total' => 'carts#total'
+  get 'carts/delete/:id' => 'carts#delete'
   get 'homepage/index'
   resources :products
 

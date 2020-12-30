@@ -7,7 +7,7 @@ import { CartData } from "./CartData"
 import { IconContext } from 'react-icons'
 
 
-function Navbar(){
+function Navbar(props){
   const [sidebar, setSidebar] = useState(false)
   const showSidebar = () => setSidebar(!sidebar)
   return(
@@ -35,7 +35,7 @@ function Navbar(){
               </li>
             )
           })}
-          <li className="nav-text-cart"><CartData /></li>
+          <li className="nav-text-cart"><CartData data={props.data}/></li>
         </ul>
       </nav>
     </IconContext.Provider>

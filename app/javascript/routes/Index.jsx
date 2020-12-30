@@ -8,7 +8,7 @@ import CartData from "../components/CartData";
 export default (
   <>
   <Router>
-    <Navbar />
+    <Navbar data="" />
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/products" exact component={Products} />
