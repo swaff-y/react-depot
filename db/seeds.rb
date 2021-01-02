@@ -41,5 +41,7 @@ you should add Ruby to your toolbox.
 :image_url => 'http://www.fillmurray.com/200/200',
 :price => 87.00)
 
+
+
 puts "Product Created"
 # . . .
