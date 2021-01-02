@@ -21,6 +21,7 @@ class CartsController < ApplicationController
   end
   def delete
     cart = Cart.find(params[:id])
+    render json: cart
     cart.destroy
   end
 

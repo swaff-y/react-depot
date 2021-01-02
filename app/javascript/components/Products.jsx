@@ -2,33 +2,40 @@ import React, {useState, useEffect} from "react";
 import { PropTypes } from 'react'
 import { Link } from "react-router-dom";
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
+const Products = ({handleChange, productsApp, loadingApp}) => {
+  const [products, setProducts] = useState(productsApp);
   const [loading, setLoading] = useState(true);
+  // const [load, setLoad] = useState(true);
+
   useEffect(()=>{
-    const url = "/products";
-    fetch(url)
-      .then(res => {
-          return res.json();
-      })
-      .then(json => {
-        setProducts(JSON.stringify(json));
-        setLoading(false);
-      })
-  },[products])
+    setProducts(productsApp);
+    // console.log("set products", productsApp);
+  },[productsApp])
+  useEffect(()=>{
+    setLoading(loading)
+  },[loadingApp])
+
 
   const handleClick = (e) => {
     const id = e.target.value;
-    fetch(`line_item/${id}`);
-  }
+    const url = `line_item/${id}`;
+    fetch(url)
+    .then(res=>{
+      if(res.ok){
+        return res.json()
+      }
+    })
+    .then(json=>{
+      handleChange();
+      // setLoad(true);
+    })
+    .catch(Error=> console.error(error))
+    // setLoad(false);
+  };
 
-  let prod = [];
-  let allProducts = ["Loading...."];
-  if(loading === false){
-    console.log("Loading: ",loading, products);
-    prod = JSON.parse(products);
-    console.log("prod", prod);
-    allProducts = prod.map((product, index) => (
+    const prod = JSON.parse(products);
+     // console.log("prod", prod);
+    const allProducts = prod.map((product, index) => (
       <div key={index} className="col-md-6 col-lg-4">
         <div className="card mb-4">
           <Link to={`/product/${product.id}`} className="prodLink">
@@ -50,7 +57,6 @@ const Products = () => {
         </div>
       </div>
     ));
-  };
 
   const noProduct = (
     <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">

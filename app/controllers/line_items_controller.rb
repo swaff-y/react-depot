@@ -10,7 +10,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
-    
+
   end
 
   # GET /line_items/new
@@ -30,6 +30,7 @@ class LineItemsController < ApplicationController
     product = Product.find(params[:id])
     @line_item = @cart.add_product(product.id)
     @line_item.save
+    render json: @line_item
   end
 
   # PATCH/PUT /line_items/1
