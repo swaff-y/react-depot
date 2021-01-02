@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import { SidebarData } from "./SidebarData"
-import { CartData } from "./CartData"
-import { IconContext } from 'react-icons'
+import { SidebarData } from "./SidebarData";
+import  CartData   from "./CartData"
+// import { Test } from "./Test";
+import { IconContext } from 'react-icons';
 
-const Navbar = (props) => {
-  const [sidebar, setSidebar] = useState(false)
+const Navbar = ({ dataNav, changeNav, totalNav }) => {
+  const [sidebar, setSidebar] = useState(false);
+  const [data, setData] = useState(dataNav);
+  const [change, setChange] = useState(changeNav);
+  const [totalCalc, setTotal] = useState(totalNav);
   const showSidebar = () => setSidebar(!sidebar)
 
   return(
@@ -17,7 +21,7 @@ const Navbar = (props) => {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
-        <span className="nav-text-ins">{props.change}</span>
+        <span className="nav-text-ins">{change}</span>
       </div>
       <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
         <ul className='nav-menu-items' onClick={showSidebar}>
@@ -36,11 +40,13 @@ const Navbar = (props) => {
               </li>
             )
           })}
-          <li className="nav-text-cart"><CartData change={props.change}/></li>
+          <li className="nav-text-cart">
+            <CartData dataCart={data} totalCart={totalCalc}/>
+          </li>
         </ul>
       </nav>
     </IconContext.Provider>
     </>
   )
-}
+};
 export default Navbar
