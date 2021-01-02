@@ -60,9 +60,15 @@ export default function CartData({dataCart, totalCart, zeroSmallCart, clearState
         </tr>
         <tr>
           <td colSpan="2">
-            <button className="btn btn-primary" onClick={handleClick}
+            <button className="btn btn-danger" onClick={handleClick}
             value={ data }>
               Empty Cart
+            </button>
+          </td>
+          <td>
+            <button className="btn btn-primary"
+            value={ data }>
+              Checkout
             </button>
           </td>
         </tr>
