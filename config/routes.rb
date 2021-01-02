@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'carts/last/total' => 'carts#total'
   get 'carts/delete/:id' => 'carts#delete'
   get 'homepage/index'
+  get 'product/:id' => 'products#show'
   resources :products
 
   root 'homepage#index'

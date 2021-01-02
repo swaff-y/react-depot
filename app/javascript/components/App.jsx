@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./Home";
 import Products from "./Products";
+import View from "./View";
 import Navbar from "./Navbar";
 import { DefaultData } from "./DefaultData";
 
@@ -14,6 +15,7 @@ const App = () => {
   const [loadingData, setLoadingData] = useState(true);
   const [loadingTotal, setLoadingTotal] = useState(true);
   const [loadingProducts, setLoadingProducts] = useState(true);
+  const [productId, setProductId] = useState(0);
 
 //fecth last cart
   useEffect( () => {
@@ -62,42 +64,36 @@ const App = () => {
       .then(json => {
         setProducts(JSON.stringify(json));
         setLoadingProducts(false);
-        // console.log("products run");
       })
   },[products])
 
+  //handles all state change by incrementing change
   function handleChange(){
     setChange(prevChange =>{
       return prevChange + 1;
     });
-    // console.log("change clicked: ", JSON.parse(data).length);
-
-    // setSmallCart(JSON.parse(data).length);
   }
-
+  //clears state after empting cart
   function clearState(){
     console.log("empty clicked");
-    // setLoadingData(true);
-    // setLoadingTotal(true);
-
     setSmallCart(0);
-
     setChange(prevChange =>{
       return prevChange + 1;
     });
   };
 
-  // console.log('app data', data);
-  // console.log('app total', totalCalc);
-  // console.log('app change', change);
+  //checks if API's are loaded before proceeding
   let loading = true;
   if(loadingTotal === false && loadingData === false){
     loading = false;
   //  setSmallCart(JSON.parse(data).length);
   }
 
+  const establishProductId = (id) => {
+    setProductId(id)
+    console.log("product id: -> ", id);
+  }
 
-  // console.log("check:", products);
   return(
     <Router>
       {loading ? <div>Loading.....</div> : <Navbar changeNav={change} dataNav={data} totalNav={totalCalc} smallCartNav={smallCart} clearState={clearState}/>}
@@ -105,8 +101,9 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         {
-          loadingProducts ? <div>Loading...</div> : <Route path="/products" render={(props)=>(<Products {...props} handleChange={handleChange} productsApp={products} loadingApp={loadingProducts}/>)} />
+          loadingProducts ? <div>Loading...</div> : <Route path="/products" render={(props)=>(<Products {...props} handleChange={handleChange} productsApp={products} loadingApp={loadingProducts} establishProductId={establishProductId}/>)} />
         }
+        <Route path="/product/view" render={(props)=>(<View {...props} productIdApp={productId} handleChange={handleChange}/>)}/>
       </Switch>
     </Router>
   )

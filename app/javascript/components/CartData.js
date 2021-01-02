@@ -16,7 +16,7 @@ export default function CartData({dataCart, totalCart, zeroSmallCart, clearState
 
   const handleClick = (e) => {
     const id = e.target.value;
-    fetch(`carts/delete/${JSON.parse(data)[0].cart_id}`)
+    fetch(`/carts/delete/${JSON.parse(data)[0].cart_id}`)
     .then(res=>{
       if(res.ok){
         return res.json()
