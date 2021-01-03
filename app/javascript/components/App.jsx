@@ -5,6 +5,7 @@ import Products from "./Products";
 import View from "./View";
 import Navbar from "./Navbar";
 import { DefaultData } from "./DefaultData";
+import  NewOrder  from "./NewOrder";
 
 const App = () => {
   const [change, setChange] = useState(0);
@@ -94,6 +95,10 @@ const App = () => {
     console.log("product id: -> ", id);
   }
 
+  function zeroSmallCart(){
+    setSmallCart(0);
+  }
+
   return(
     <Router>
       {loading ? <div>Loading.....</div> : <Navbar changeNav={change} dataNav={data} totalNav={totalCalc} smallCartNav={smallCart} clearState={clearState}/>}
@@ -104,6 +109,7 @@ const App = () => {
           loadingProducts ? <div>Loading...</div> : <Route path="/products" render={(props)=>(<Products {...props} handleChange={handleChange} productsApp={products} loadingApp={loadingProducts} establishProductId={establishProductId}/>)} />
         }
         <Route path="/product/view" render={(props)=>(<View {...props} productIdApp={productId} handleChange={handleChange}/>)}/>
+        <Route path="/order/new" render={(props)=>(<NewOrder {...props} dataOrder={data} totalOrder={totalCalc} zeroSmallCart={zeroSmallCart} clearState={clearState} checkOutTog={true} />)}/>
       </Switch>
     </Router>
   )

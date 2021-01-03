@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :line_items
   get 'line_item/:id' => 'line_items#create'
   resources :carts

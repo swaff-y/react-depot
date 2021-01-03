@@ -80,11 +80,6 @@ const Products = ({handleChange, productsApp, loadingApp, establishProductId}) =
     <>
       <div className="py-5">
         <main className="container">
-          <div className="text-right mb-3">
-            <Link to="/products/new" className="btn custom-button">
-              Create New Product
-            </Link>
-          </div>
           <div className="row">
             {prod.length > 0 ? allProducts : noProduct}
           </div>

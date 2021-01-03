@@ -61,7 +61,7 @@ const Navbar = ({ dataNav, changeNav, totalNav, smallCartNav, clearState }) => {
             )
           })}
           <li className="nav-text-cart">
-            <CartData dataCart={data} totalCart={totalCalc} zeroSmallCart={zeroSmallCart} clearState={clearState}/>
+            <CartData dataCart={data} totalCart={totalCalc} zeroSmallCart={zeroSmallCart} clearState={clearState} checkOutTog={false}/>
           </li>
         </ul>
       </nav>
