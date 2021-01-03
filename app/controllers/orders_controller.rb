@@ -15,11 +15,7 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @cart = current_cart
-    if @cart.line_items.empty?
-
-    end
-    @order = Order.new
-    render :json @order
+    render json: @cart.line_items, include: ['product']
   end
 
   # GET /orders/1/edit
@@ -30,13 +26,13 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        Cart.destroy(session[:cart_id])
         format.json { render :show, status: :created, location: @order }
       else
-        format.html { render :new }
         format.json { render json: @order.errors, status: :unprocessable_entity }
       end
     end

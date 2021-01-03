@@ -37,7 +37,7 @@ export default function CartData({dataCart, totalCart, zeroSmallCart, clearState
 
   const handleCheckout = (e) => {
     const id = e.target.value;
-    console.log("id? -> ", id);
+    // console.log("id? -> ", id);
   };
 
   let textClass = "";
